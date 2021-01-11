@@ -7,12 +7,13 @@
 #Outputs the greatest increase in profits (date and amount) over the entire period
 #Determines the greatest decrease in losses (date and amount) over the entire period
 
-#Imports the os and csv libraries
-import os
-import csv
+#Imports the os and csv modules
+import os, csv
 
+#Provides an output path for the csv file path
 output_path = os.path.join('Resources/budget_data.csv')
 
+#Opens the csv file as a new variable
 with open(output_path,mode='r') as csvfile:
 	csv_read_in = csv.reader(csvfile, delimiter=',')
 	next(csv_read_in)
@@ -56,4 +57,16 @@ with open(output_path,mode='r') as csvfile:
     print(f'Total: ${net_total}')
     print(f'Average Change: ${avg_change:.{n}f}')
     print(f'Greatest Increase In Profits: {month_prof} (${great_prof})')
-    print(f'Greatest Decrease In Profits: {month_loss} (${great_loss})')
+    print(f'Greatest Decrease In Profits: {month_loss} (${great_loss})')\
+    
+import sys
+sys.stdout = open('main_Pybank.txt','w')
+
+print('Financial Analysis')
+print('___________________')
+print('')
+print(f'Total Months: {month_count}')
+print(f'Total: ${net_total}')
+print(f'Average Change: ${avg_change:.{n}f}')
+print(f'Greatest Increase In Profits: {month_prof} (${great_prof})')
+print(f'Greatest Decrease In Profits: {month_loss} (${great_loss})')
