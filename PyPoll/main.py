@@ -120,3 +120,5 @@ print('___________________')
 print('')
 print(f'Winner: {winner}')
 print('___________________')
+
+sys.stdout.close()

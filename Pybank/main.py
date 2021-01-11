@@ -70,3 +70,5 @@ print(f'Total: ${net_total}')
 print(f'Average Change: ${avg_change:.{n}f}')
 print(f'Greatest Increase In Profits: {month_prof} (${great_prof})')
 print(f'Greatest Decrease In Profits: {month_loss} (${great_loss})')
+
+sys.stdout.close()
