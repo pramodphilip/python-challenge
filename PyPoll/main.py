@@ -11,7 +11,7 @@
 #Imports the os and csv modules
 import os, csv
 
-#Provides output path for csv file
+#Provides output path name for csv file
 output_path = os.path.join('Resources/election_data.csv')
 #Opens the csv file in read mode
 with open(output_path,mode='r') as csvfile:
@@ -21,11 +21,11 @@ with open(output_path,mode='r') as csvfile:
     next(csv_read_in)
     #Converts object csv_read_in to a list
     elec_list = list(zip(*csv_read_in))
-    #Equates the total number of votes to be the length of the columns
-    #in the file
+    #Equates the total number of votes to the length of the first column
+    #in elec_list
     vote_total = int(len(elec_list[0]))
     
-    #Creates an empty list to store candidate names
+    #Creates a list to store candidate names, initializes with first name in the Candidate Name column
     candidate = [elec_list[2][0]]
 
     #Loops through candidate column up until second to last row
@@ -39,7 +39,7 @@ with open(output_path,mode='r') as csvfile:
                 #the candidate's name is appened to the candidate list
                 candidate.append(elec_list[2][x+1])
 
-    #Establishes a new list for counting the number of votes
+    #Creates a new list for counting the number of votes
     #that each candidate received
     cand_vote = []
 
@@ -57,7 +57,7 @@ with open(output_path,mode='r') as csvfile:
                 #If yes, adds one vote the respective candidate in cand_vote
                 cand_vote[y] = cand_vote[y] + 1
                 
-    #Creates list for the percentage of votes each
+    #Creates list for calculating the percentage of votes each
     #candidate received
     per_vote = []
 
@@ -106,8 +106,10 @@ print('___________________')
 
 #Exports the election results to a .txt file
 import sys
+#Opens a new .txt file name "main_PyPoll.txt"
 sys.stdout = open('main_PyPoll.txt','w')
 
+#Prints election results to the .txt file
 print('Election Results')
 print('___________________')
 print('')
@@ -121,4 +123,5 @@ print('')
 print(f'Winner: {winner}')
 print('___________________')
 
+#Closes the .txt file
 sys.stdout.close()
