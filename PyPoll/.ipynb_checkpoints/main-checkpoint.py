@@ -84,7 +84,7 @@ with open(output_path,mode='r') as csvfile:
             winner = candidate[z]
 
     #The percentage vote is converted to a string that
-    #provides the correct amount of accuracy for each vote
+    #provides the correct amount of precision for each vote
     per_vote = ['%.3f' % elem for elem in per_vote]
     
 #Prints out the election results
